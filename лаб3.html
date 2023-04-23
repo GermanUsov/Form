@@ -1,0 +1,97 @@
+<form name="contact_form" method="post" action="лаб3_1.html" onsubmit="validate_form ( );"><h1>Форма создания статьи.</h1>
+    <p>Введите название статьи: <input type = "text" id = "names"></p>
+      
+    <p>Выберите период:<select id ="per">
+        <option value="1" selected disabled>Период</option>
+        <option>Доисторический период (2,5 млн лет назад – 3 тыс. до н.э.)</option>
+        <option>Античный период (3 тыс. до н.э. – вторая половина V в)</option>
+        <option>Средневековье (V –XV вв)</option>
+        <option>Новое время (XV в.-1918 г.)</option>
+        <option>Новейшее время (с 1918 г. по сегодняшний день)</option></select>
+        </p>
+
+        <p>Опишите период:<br><textarea id ="opis"></textarea></p>
+
+        <p>Главные лица периода:<br><textarea id ="glawn"></textarea></p>
+
+        <p>Дополнить статью фото:</p>
+        <input name="photo" type="file" accept="image/*" required><br><br>
+        <input name="photo" type="file" accept="image/*" required><br><br>
+
+        <p>Автор статьи<br><textarea id ="aut"></textarea></p>
+
+        <p>Почта автора статьи<br><textarea id ="gmail"></textarea></p>
+
+        <p><br>Выберите правильный ответ:</p>    
+        <img src="kapcha.jfif"><br>
+        <label><input type="checkbox" id="one" >4m49</label>
+        <label><input type="checkbox"id="one1" >4b49</label>
+        <label><input type="checkbox"id="one2" >4n49</label>
+        <br>  
+    <input type="submit" name="send" onClick="myF()" value="Отправить статью"></p>
+    </form>
+    <script type="text/javascript">
+    function myF(){
+        var a = document.getElementById("names").value;
+        var b = document.getElementById("per").value;
+       
+        localStorage.setItem("a",a);
+        localStorage.setItem("b",b);
+
+        window.location = "лаб3_1.html";
+    }
+    function validate_form ( )
+    {
+        valid = true;
+        var a1,a2,a3;
+    a1=document.getElementById('one');
+    a2=document.getElementById('one1');
+    a3=document.getElementById('one2');
+        if (a1.checked) {
+             valid = true;
+        }
+        else {
+             valid = false;
+        }
+    if (a2.checked) {
+        alert("Введите правильное значение");
+    
+             valid = false;
+        }
+        if (a3.checked) {
+            alert("Введите правильное значение");
+             valid = false;
+        }	
+            if ( document.contact_form.names.value == "" )
+            {
+                    alert ( "Пожалуйста заполните поле 'Название статьи'." );
+                    valid = false;
+            }            
+            if ( document.contact_form.per.value == "")
+            {
+                    alert ( "Пожалуйста заполните поле 'Выберите период'." );
+                    valid = false;
+            }       
+            if ( document.contact_form.glawn.value == "")
+            {
+                    alert ( "Пожалуйста заполните поле 'Главные лица периода'." );
+                    valid = false;
+            }
+            if ( document.contact_form.opis.value == "")
+            {
+                    alert ( "Пожалуйста заполните поле 'Опишите период'." );
+                    valid = false;
+            }
+          if ( document.contact_form.gmail.value == "")
+            {
+                    alert ( "Пожалуйста заполните поле 'Почта автора'." );
+                    valid = false;
+            }
+            if ( document.contact_form.aut.value == "")
+            {
+                    alert ( "Пожалуйста заполните поле 'Автор статьи'." );
+                    valid = false;
+            }
+            return valid;
+    }    
+    </script>
